@@ -1,0 +1,19 @@
+{
+  "flab": {
+    "description": "flab-ui Ethernet ports and Devices and Interfaces pages (ports, bridges, VLANs, logical interfaces); the network config without its secrets (flab.network config) and, through staged uci edits with automatic rollback, the network config itself; the cable test, which the page only runs when asked",
+    "read": {
+      "ubus": {
+        "flab.network": ["status", "config"],
+        "uci": ["changes"]
+      },
+      "uci": ["network"]
+    },
+    "write": {
+      "ubus": {
+        "flab.network": ["cable_test"],
+        "uci": ["set", "add", "delete", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["network"]
+    }
+  }
+}

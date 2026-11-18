@@ -1,0 +1,11 @@
+{
+  "flab": {
+    "description": "flab-ui sensors (Overview page)",
+    "read": {
+      "ubus": {
+        "flab.sensors": ["status"]
+      }
+    },
+    "write": {}
+  }
+}

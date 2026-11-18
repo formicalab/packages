@@ -1,0 +1,15 @@
+{
+  "flab": {
+    "description": "flab-ui Toolbox: run ping, traceroute, mtr, DNS, TLS checks, an iperf3 server and packet captures as background jobs and read their output; download a capture; send a Wake-on-LAN packet",
+    "read": {
+      "ubus": {
+        "flab.diag": ["status", "read"]
+      }
+    },
+    "write": {
+      "ubus": {
+        "flab.diag": ["start", "stop", "download", "wake"]
+      }
+    }
+  }
+}

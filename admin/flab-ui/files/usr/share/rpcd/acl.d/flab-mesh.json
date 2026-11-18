@@ -1,0 +1,11 @@
+{
+  "flab": {
+    "description": "flab-ui Wi-Fi radios page (802.11s mesh interfaces, peers and paths)",
+    "read": {
+      "ubus": {
+        "flab.mesh": ["status"]
+      }
+    },
+    "write": {}
+  }
+}

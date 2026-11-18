@@ -1,0 +1,11 @@
+{
+  "flab": {
+    "description": "flab-ui BGP page",
+    "read": {
+      "ubus": {
+        "flab.bgp": ["status"]
+      }
+    },
+    "write": {}
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "flab": {
+    "description": "flab-ui Routing page: kernel routes, policy rules and the next-hop lookup (read only); the Static routes tab reads the route and route6 sections of the network config (uci get by section type) and stages edits to them with automatic rollback; the BGP part uses flab-bgp.json",
+    "read": {
+      "ubus": {
+        "flab.routing": ["status", "lookup"],
+        "uci": ["get", "changes"]
+      },
+      "uci": ["network"]
+    },
+    "write": {
+      "ubus": {
+        "uci": ["set", "add", "delete", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["network"]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "flab": {
+    "description": "flab-ui Wi-Fi radios page: radios and their state (read), the wireless config without its secrets (flab.radio config), and the radios and wireless networks through staged uci edits on the wireless config with automatic rollback, and the WPS push button of an access point, which the page only starts when asked. uci get is not granted: the wireless config holds the Wi-Fi keys",
+    "read": {
+      "ubus": {
+        "flab.radio": ["status", "config"],
+        "uci": ["changes"]
+      },
+      "uci": ["wireless"]
+    },
+    "write": {
+      "ubus": {
+        "flab.radio": ["wps"],
+        "uci": ["set", "add", "delete", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["wireless"]
+    }
+  }
+}

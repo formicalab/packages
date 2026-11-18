@@ -1,0 +1,18 @@
+{
+  "flab": {
+    "description": "flab-ui WireGuard page: interfaces and peers without their keys (flab.wireguard status), and the WireGuard interfaces and peers of the network config through staged uci edits with automatic rollback",
+    "read": {
+      "ubus": {
+        "flab.wireguard": ["status"],
+        "uci": ["changes"]
+      },
+      "uci": ["network"]
+    },
+    "write": {
+      "ubus": {
+        "uci": ["set", "add", "delete", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["network"]
+    }
+  }
+}

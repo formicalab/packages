@@ -1,0 +1,18 @@
+{
+  "flab": {
+    "description": "flab-ui Traffic page: the connection tracking table and nlbwmon usage per host and the paths of its settings (flab.traffic), and the nlbwmon config through staged uci edits with automatic rollback",
+    "read": {
+      "ubus": {
+        "flab.traffic": ["status", "connections", "usage_periods", "usage", "nlbwmon_paths"],
+        "uci": ["get", "changes"]
+      },
+      "uci": ["nlbwmon"]
+    },
+    "write": {
+      "ubus": {
+        "uci": ["set", "add", "delete", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["nlbwmon"]
+    }
+  }
+}

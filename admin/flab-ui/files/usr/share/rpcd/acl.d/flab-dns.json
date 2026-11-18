@@ -1,0 +1,18 @@
+{
+  "flab": {
+    "description": "flab-ui DNS page: the state of the router's DNS resolver, Unbound or dnsmasq (flab.dns reads), and the resolver's options through staged uci edits with automatic rollback",
+    "read": {
+      "ubus": {
+        "flab.dns": ["status"],
+        "uci": ["get", "changes"]
+      },
+      "uci": ["unbound", "dhcp"]
+    },
+    "write": {
+      "ubus": {
+        "uci": ["set", "add", "delete", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["unbound", "dhcp"]
+    }
+  }
+}

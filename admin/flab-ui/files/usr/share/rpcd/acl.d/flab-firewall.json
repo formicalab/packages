@@ -1,0 +1,18 @@
+{
+  "flab": {
+    "description": "flab-ui Firewall page: what the firewall has loaded (flab.firewall status) and the firewall config through staged uci edits with automatic rollback",
+    "read": {
+      "ubus": {
+        "flab.firewall": ["status"],
+        "uci": ["get", "changes"]
+      },
+      "uci": ["firewall"]
+    },
+    "write": {
+      "ubus": {
+        "uci": ["set", "add", "delete", "order", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["firewall"]
+    }
+  }
+}

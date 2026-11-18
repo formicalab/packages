@@ -1,0 +1,17 @@
+{
+  "flab": {
+    "description": "flab-ui System settings page: read and change /etc/config/system through staged uci edits with automatic rollback",
+    "read": {
+      "ubus": {
+        "uci": ["get", "changes"]
+      },
+      "uci": ["system"]
+    },
+    "write": {
+      "ubus": {
+        "uci": ["set", "add", "delete", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["system"]
+    }
+  }
+}

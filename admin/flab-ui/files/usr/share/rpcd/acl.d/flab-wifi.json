@@ -1,0 +1,11 @@
+{
+  "flab": {
+    "description": "flab-ui Connected devices view of Devices and Interfaces (the Wi-Fi clients)",
+    "read": {
+      "ubus": {
+        "flab.wifi": ["clients"]
+      }
+    },
+    "write": {}
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "flab": {
+    "description": "flab-ui base: session handling and generic system status",
+    "read": {
+      "ubus": {
+        "system": ["board", "info"],
+        "flab.system": ["build"],
+        "network.interface": ["dump"],
+        "service": ["list"],
+        "session": ["access", "destroy"]
+      }
+    },
+    "write": {}
+  }
+}

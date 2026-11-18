@@ -1,0 +1,19 @@
+{
+  "flab": {
+    "description": "flab-ui Dynamic DNS page: the ddns config without its secrets and what each service is doing (flab.ddns status and log), restarting one service's updater (control), and the ddns config through staged uci edits with automatic rollback",
+    "read": {
+      "ubus": {
+        "flab.ddns": ["status", "log"],
+        "uci": ["changes"]
+      },
+      "uci": ["ddns"]
+    },
+    "write": {
+      "ubus": {
+        "flab.ddns": ["control"],
+        "uci": ["set", "add", "delete", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["ddns"]
+    }
+  }
+}

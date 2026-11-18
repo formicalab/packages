@@ -1,0 +1,11 @@
+{
+  "flab": {
+    "description": "flab-ui system statistics (Overview page)",
+    "read": {
+      "ubus": {
+        "flab.system": ["cpu"]
+      }
+    },
+    "write": {}
+  }
+}

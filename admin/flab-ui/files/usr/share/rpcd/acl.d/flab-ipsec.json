@@ -1,0 +1,11 @@
+{
+  "flab": {
+    "description": "flab-ui IPsec page",
+    "read": {
+      "ubus": {
+        "flab.ipsec": ["status"]
+      }
+    },
+    "write": {}
+  }
+}

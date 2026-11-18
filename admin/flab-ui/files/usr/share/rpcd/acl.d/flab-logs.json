@@ -1,0 +1,11 @@
+{
+  "flab": {
+    "description": "flab-ui Logs page (system log and kernel log, read-only)",
+    "read": {
+      "ubus": {
+        "flab.logs": ["read"]
+      }
+    },
+    "write": {}
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "flab": {
+    "description": "flab-ui VLAN editor of the Ethernet ports page: the VLAN sections of the network config (bridge-vlan, device, switch, switch_vlan, switch_port, read with uci get filtered by section type) and staged edits to them with automatic rollback",
+    "read": {
+      "ubus": {
+        "uci": ["get", "changes"]
+      },
+      "uci": ["network"]
+    },
+    "write": {
+      "ubus": {
+        "uci": ["set", "add", "delete", "order", "revert", "apply", "confirm", "rollback"]
+      },
+      "uci": ["network"]
+    }
+  }
+}

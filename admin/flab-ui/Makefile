@@ -59,7 +59,7 @@ define Package/flab-ui/install
 	$(INSTALL_DIR) $(1)/www/flab
 	$(CP) $(PKG_BUILD_DIR)/www/. $(1)/www/flab/
 	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/rpcd/acl.d/*.json \
+	$(INSTALL_DATA) ./files/usr/share/rpcd/acl.d/*.json \
 		$(1)/usr/share/rpcd/acl.d/
 	$(INSTALL_DIR) $(1)/usr/share/rpcd/ucode
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/rpcd/ucode/*.uc \
