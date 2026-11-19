@@ -1,11 +1,15 @@
 {
   "flab": {
-    "description": "flab-ui BGP page",
+    "description": "flab-ui BGP page: BIRD status, its configuration file, a configuration check, and per-peer restart, enable, disable and route refresh",
     "read": {
       "ubus": {
-        "flab.bgp": ["status"]
+        "flab.bgp": ["status", "config", "check"]
       }
     },
-    "write": {}
+    "write": {
+      "ubus": {
+        "flab.bgp": ["action"]
+      }
+    }
   }
 }
