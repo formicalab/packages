@@ -46,8 +46,8 @@ define Package/flab-ui-mod-network
 endef
 
 define Package/flab-ui-mod-network/description
-  Ethernet ports, VLANs, Devices and Interfaces, connected clients and network
-  diagnostics for flab-ui.
+  Ethernet ports, VLANs, Devices and Interfaces and connected clients for
+  flab-ui.
 endef
 
 define Package/flab-ui-mod-wireless
