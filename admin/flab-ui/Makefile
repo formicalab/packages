@@ -7,12 +7,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=flab-ui
-PKG_VERSION:=0.1.14
+PKG_VERSION:=0.1.15
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/formicalab/flab-ui/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=0a2cd0daf685965fd31f5f0c1c8136a315557bc17acf33d620398da5cfeee110
+PKG_HASH:=b658505b5f1391f799a8e6c0772c571665a17d5bae277c3ce4491b18d049c824
 
 PKG_MAINTAINER:=Marcello Formica <formicalab@live.it>
 PKG_LICENSE:=MIT
