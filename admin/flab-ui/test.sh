@@ -94,6 +94,11 @@ flab-ui-mod-logs)
 	compile /usr/share/rpcd/ucode/flab.logs.uc
 	acl_pair /usr/share/rpcd/ucode/flab.logs.uc
 	;;
+flab-ui-mod-asterisk)
+	[ -s /www/flab/modules/asterisk.json ] || exit 1
+	compile /usr/share/rpcd/ucode/flab.asterisk.uc
+	acl_pair /usr/share/rpcd/ucode/flab.asterisk.uc
+	;;
 flab-ui)
 	# The metapackage's dependencies provide every module.
 	ucode -e 'import { num } from "flab.util"; print("flab.util ", num("7"), "\n");' |

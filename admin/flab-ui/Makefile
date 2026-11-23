@@ -7,12 +7,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=flab-ui
-PKG_VERSION:=0.1.21
+PKG_VERSION:=0.1.26
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/formicalab/flab-ui/tar.gz/v$(PKG_VERSION)?
-PKG_HASH:=9e507ed8a0d75e449342a1efd800ede0df95b6309b5b7a71cc41227d2d3699fe
+PKG_HASH:=f7846c155f89be6ef3410a53851adaf54369cf87142964332c3420dc4125cca4
 
 PKG_MAINTAINER:=Marcello Formica <formicalab@live.it>
 PKG_LICENSE:=MIT
@@ -110,6 +110,18 @@ define Package/flab-ui-mod-routing/description
   Kernel routing, policy rules, static routes, lookups and optional BGP.
 endef
 
+define Package/flab-ui-mod-asterisk
+  $(Package/flab-ui/Default)
+  TITLE:=Flab UI Asterisk module
+  DEPENDS:=+flab-ui-base
+endef
+
+define Package/flab-ui-mod-asterisk/description
+  Read-only view of the Asterisk PBX: daemon status, PJSIP registrations and
+  endpoints, the dialplan and the configuration files. Needs asterisk with
+  PJSIP installed to show anything.
+endef
+
 define Package/flab-ui-mod-traffic
   $(Package/flab-ui/Default)
   TITLE:=Flab UI traffic module
@@ -157,7 +169,7 @@ define Package/flab-ui
   DEPENDS:=+flab-ui-base +flab-ui-mod-network +flab-ui-mod-wireless \
 	+flab-ui-mod-firewall +flab-ui-mod-vpn +flab-ui-mod-dhcp +flab-ui-mod-dns \
 	+flab-ui-mod-routing +flab-ui-mod-traffic +flab-ui-mod-toolbox \
-	+flab-ui-mod-services +flab-ui-mod-logs
+	+flab-ui-mod-services +flab-ui-mod-logs +flab-ui-mod-asterisk
 endef
 
 define Package/flab-ui/description
@@ -196,6 +208,8 @@ Package/flab-ui-mod-services/postinst = $(Package/flab-ui/restart)
 Package/flab-ui-mod-services/postrm = $(Package/flab-ui/restart)
 Package/flab-ui-mod-logs/postinst = $(Package/flab-ui/restart)
 Package/flab-ui-mod-logs/postrm = $(Package/flab-ui/restart)
+Package/flab-ui-mod-asterisk/postinst = $(Package/flab-ui/restart)
+Package/flab-ui-mod-asterisk/postrm = $(Package/flab-ui/restart)
 
 define Build/Compile
 endef
@@ -297,6 +311,11 @@ define Package/flab-ui-mod-logs/install
 	$(call Install/FlabBackend,$(1),logs,logs)
 endef
 
+define Package/flab-ui-mod-asterisk/install
+	$(call Install/FlabFrontend,$(1),asterisk,asterisk.css drawer.css,asterisk)
+	$(call Install/FlabBackend,$(1),asterisk,asterisk)
+endef
+
 define Package/flab-ui/install
 	$(INSTALL_DIR) $(1)/usr/share/flab-ui
 	$(INSTALL_DATA) $(PKG_BUILD_DIR)/LICENSE $(1)/usr/share/flab-ui/FULL
@@ -314,4 +333,5 @@ $(eval $(call BuildPackage,flab-ui-mod-traffic))
 $(eval $(call BuildPackage,flab-ui-mod-toolbox))
 $(eval $(call BuildPackage,flab-ui-mod-services))
 $(eval $(call BuildPackage,flab-ui-mod-logs))
+$(eval $(call BuildPackage,flab-ui-mod-asterisk))
 $(eval $(call BuildPackage,flab-ui))
